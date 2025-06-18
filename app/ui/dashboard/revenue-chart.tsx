@@ -4,17 +4,17 @@ import { CalendarIcon } from "@heroicons/react/24/outline"
 import { Revenue } from "@/app/lib/definitions"
 import { lusitana } from "../fonts"
 
+import { fetchRevenue } from "@/app/lib/data"
+
 // This component is representational only.
 // For data visualization UI, check out:
 // https://www.tremor.so/
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 
-export default async function RevenueChart({
-  revenue,
-}: {
-  revenue: Revenue[]
-}) {
+export default async function RevenueChart() {
+  // Make component async, remove the props
+  const revenue = await fetchRevenue() // Fetch data inside the component
   const chartHeight = 350
   // NOTE: Uncomment this code in Chapter 7
 
